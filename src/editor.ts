@@ -29,6 +29,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <canvas id="c" width="${mapSize[0] * cellSize}" height="${mapSize[1] * cellSize}"></canvas>
     <div id="toolbar">
+      <button id="browser">Back</button>
       <button id="reset">Reset</button>
       <button id="save">Save</button>
       <button id="load">Load</button>
@@ -38,6 +39,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </div>
 `;
+
+document.querySelector<HTMLButtonElement>('#browser')!.addEventListener('click', () => {
+  window.location.href = '/';
+});
+
 document.querySelector<HTMLButtonElement>('#reset')!.addEventListener('click', () => {
   for (let i = 0; i < mapSize[0]; i++) {
     for (let j = 0; j < mapSize[1]; j++) {

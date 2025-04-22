@@ -45,6 +45,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="last">Last</button>
       <button id="open">Play</button>
       <button id="next">Next</button>
+      <button id="editor">Editor</button>
     </div>
   </div>
 `;
@@ -62,6 +63,10 @@ fetch(`/puzzles/${puzzles[selected_puzzle]}.json`)
           }
         }
       });
+
+document.querySelector<HTMLButtonElement>('#editor')!.addEventListener('click', () => {
+  window.location.href = '/editor.html';
+});
 
 document.querySelector<HTMLButtonElement>('#last')!.addEventListener('click', () => {
   if (selected_puzzle > 0) {
