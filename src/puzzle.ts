@@ -185,7 +185,7 @@ setInterval(() => {
     }
     for (let i = 0; i < 7; i++) {
         const button = document.querySelector<HTMLButtonElement>(`#d${i}`)!;
-        button.innerText = `District ${i} (${districtCounts[i + 1]})`;
+        button.innerText = `District ${i} (${districtCounts[i + 1]}/7)`;
     }
     const mouseX = Math.floor(mouse_over[0] / cellSize);
     const mouseY = Math.floor(mouse_over[1] / cellSize);

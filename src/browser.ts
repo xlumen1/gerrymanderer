@@ -3,7 +3,22 @@ import './style.css';
 const mapSize: [number, number] = [7, 7];
 const cellSize: number = 20;
 
-const puzzles: string[] = ["01", "02", "Impossible"];
+const secret: [number, number][] = [
+  [1, 0],
+  [1, 0],
+  [1, 1],
+  [1, 1],
+  [0, 1],
+  [2, 1],
+  [0, 1],
+  [2, 1],
+  [0, 0],
+  [2, 0]
+]
+
+var sprog = 0;
+
+const puzzles: string[] = ["01", "02", "Impossible", "xyz"];
 var selected_puzzle: number = 0;
 
 var mouse_over: [number, number] = [0, 0];
@@ -138,6 +153,18 @@ document.addEventListener('mousedown', () => {
 
 document.addEventListener('mouseup', () => {
   mouse_down = false;
+});
+
+canvas.addEventListener('click', (event) => {
+  const mouseX = Math.floor(mouse_over[0] / cellSize);
+  const mouseY = Math.floor(mouse_over[1] / cellSize);
+  if (secret[sprog] = [mouseX, mouseY]) {
+    sprog++;
+    if (sprog == secret.length) {
+      alert("Something shifts...");
+      sprog = 0;
+    }
+  }
 });
 
 setInterval(() => {
